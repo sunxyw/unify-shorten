@@ -12,5 +12,13 @@ return [
                 'base_url' => 'https://1pt.co/',
             ],
         ],
+
+        'cleanuri' => [
+            'class' => \Sunxyw\Shorten\Providers\CleanUri::class,
+            'api' => 'https://cleanuri.com/api/v1/shorten',
+            'options' => [
+                'base_url' => 'https://cleanuri.com/',
+            ],
+        ],
     ],
 ];
