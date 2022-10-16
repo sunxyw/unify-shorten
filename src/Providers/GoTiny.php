@@ -21,6 +21,6 @@ class GoTiny extends Provider
             throw new RemoteServiceException($response->json('message'));
         }
 
-        return $this->options['base_url'] . $response->json('0.code');
+        return $this->options['base_url'].$response->json('0.code');
     }
 }
