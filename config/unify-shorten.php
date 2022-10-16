@@ -20,5 +20,13 @@ return [
                 'base_url' => 'https://cleanuri.com/',
             ],
         ],
+
+        'gotiny' => [
+            'class' => \Sunxyw\Shorten\Providers\GoTiny::class,
+            'api' => 'https://gotiny.cc/api',
+            'options' => [
+                'base_url' => 'https://gotiny.cc/',
+            ],
+        ],
     ],
 ];
