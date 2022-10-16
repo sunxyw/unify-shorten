@@ -1,22 +1,13 @@
-# This is my package unify-shorten
+# Unify Shorten - Make all URL Shorteners together
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sunxyw/unify-shorten.svg?style=flat-square)](https://packagist.org/packages/sunxyw/unify-shorten)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sunxyw/unify-shorten/run-tests?label=tests)](https://github.com/sunxyw/unify-shorten/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/sunxyw/unify-shorten/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/sunxyw/unify-shorten/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/sunxyw/unify-shorten.svg?style=flat-square)](https://packagist.org/packages/sunxyw/unify-shorten)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/unify-shorten.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/unify-shorten)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can
-support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
-You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards
-on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This is a package that helps you quickly access various short link services, which you can use to make your app support
+short links provided by different short link services.
+From full disclosure, to requiring registration, and even paid services.
 
 ## Installation
 
@@ -26,62 +17,40 @@ You can install the package via composer:
 composer require sunxyw/unify-shorten
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="unify-shorten-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
+You can publish the config file with (it should be published automatically):
 
 ```bash
 php artisan vendor:publish --tag="unify-shorten-config"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="unify-shorten-views"
-```
-
 ## Usage
 
 ```php
-$shorten = new Sunxyw\Shorten();
-echo $shorten->echoPhrase('Hello, Sunxyw!');
+// using Facade
+use Sunxyw\Shorten\Facades\Shorten;
+Shorten::shorten('AWESOME URL HERE'); // using default provider
+Shorten::provider('cuttly')->shorten('AWESOME URL HERE WITH CUTTLY'); // using cuttly provider
+
+// using helper function
+shorten('AWESOME URL HERE'); // using default provider
+
+// using Shorten class
+use Sunxyw\Shorten\Shorten;
+app(Shorten::class)->shorten('AWESOME URL HERE'); // using default provider
+app(Shorten::class)->provider('cuttly')->shorten('AWESOME URL HERE WITH CUTTLY'); // using cuttly provider
+app(Shorten::class)->gotiny->shorten('AWESOME URL HERE WITH GOTINY'); // using gotiny provider (using magic property)
 ```
+
+All the methods above will return the shortened URL.
 
 ## Supported Providers
 
-| API                                                                                  | Auth     | HTTPS | CORS    | Supported? |
-|--------------------------------------------------------------------------------------|----------|-------|---------|------------|
-| [1pt](https://github.com/1pt-co/api/blob/main/README.md)                             | No       | Yes   | Yes     |            |
-| [Bitly](http://dev.bitly.com/get_started.html)                                       | `OAuth`  | Yes   | Unknown |            |
-| [CleanURI](https://cleanuri.com/docs)                                                | No       | Yes   | Yes     |            |
-| [ClickMeter](https://support.clickmeter.com/hc/en-us/categories/201474986)           | `apiKey` | Yes   | Unknown |            |
-| [Clico](https://cli.com/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config) | `apiKey` | Yes   | Unknown |            |
-| [Cutt.ly](https://cutt.ly/api-documentation/cuttly-links-api)                        | `apiKey` | Yes   | Unknown |            |
-| [Drivet URL Shortener](https://wiki.drivet.xyz/en/url-shortener/add-links)           | No       | Yes   | Unknown |            |
-| [Free Url Shortener](https://ulvis.net/developer.html)                               | No       | Yes   | Unknown |            |
-| [Git.io](https://github.blog/2011-11-10-git-io-github-url-shortener/)                | No       | Yes   | Unknown |            |
-| [GoTiny](https://github.com/robvanbakel/gotiny-api)                                  | No       | Yes   | Yes     |            |
-| [Kutt](https://docs.kutt.it/)                                                        | `apiKey` | Yes   | Yes     |            |
-| [Mgnet.me](http://mgnet.me/api.html)                                                 | No       | Yes   | No      |            |
-| [owo](https://owo.vc/api)                                                            | No       | Yes   | Unknown |            |
-| [Rebrandly](https://developers.rebrandly.com/v1/docs)                                | `apiKey` | Yes   | Unknown |            |
-| [Short Link](https://github.com/FayasNoushad/Short-Link-API)                         | No       | Yes   | Unknown |            |
-| [Shrtcode](https://shrtco.de/docs)                                                   | No       | Yes   | Yes     |            |
-| [Shrtlnk](https://shrtlnk.dev/developer)                                             | `apiKey` | Yes   | Yes     |            |
-| [TinyURL](https://tinyurl.com/app/dev)                                               | `apiKey` | Yes   | No      |            |
-| [UrlBae](https://urlbae.com/developers)                                              | `apiKey` | Yes   | Yes     |            |
+| API                                                                                  | Auth     | HTTPS | CORS    |
+|--------------------------------------------------------------------------------------|----------|-------|---------|
+| [1pt](https://github.com/1pt-co/api/blob/main/README.md)                             | No       | Yes   | Yes     |
+| [CleanURI](https://cleanuri.com/docs)                                                | No       | Yes   | Yes     |
+| [Cutt.ly](https://cutt.ly/api-documentation/cuttly-links-api)                        | `apiKey` | Yes   | Unknown |
+| [GoTiny](https://github.com/robvanbakel/gotiny-api)                                  | No       | Yes   | Yes     |
 
 ## Testing
 
