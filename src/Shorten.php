@@ -8,6 +8,7 @@ use Sunxyw\Shorten\Providers\Provider;
 class Shorten
 {
     private array $providers;
+
     private string $default;
 
     public function __construct()
@@ -35,7 +36,7 @@ class Shorten
 
     public function provider(string $name): Provider
     {
-        if (!isset($this->providers[$name])) {
+        if (! isset($this->providers[$name])) {
             throw new UnknownProviderException($name);
         }
         $config = $this->providers[$name];

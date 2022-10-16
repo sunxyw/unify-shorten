@@ -5,6 +5,7 @@ namespace Sunxyw\Shorten\Providers;
 abstract class Provider
 {
     protected string $api;
+
     protected array $options;
 
     public function __construct(string $api, array $options = [])
