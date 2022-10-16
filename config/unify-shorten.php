@@ -28,5 +28,14 @@ return [
                 'base_url' => 'https://gotiny.cc/',
             ],
         ],
+
+        'cuttly' => [
+            'class' => \Sunxyw\Shorten\Providers\CuttLy::class,
+            'api' => 'https://cutt.ly/api/api.php',
+            'options' => [
+                'api_key' => 'c8d221a514aff4b00bb9c9c0b7c1cd8fce115',
+                'base_url' => 'https://cutt.ly/',
+            ],
+        ],
     ],
 ];
