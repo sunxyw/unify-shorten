@@ -2,6 +2,7 @@
 
 namespace Sunxyw\Shorten;
 
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Sunxyw\Shorten\Commands\ShortenCommand;
@@ -18,8 +19,9 @@ class ShortenServiceProvider extends PackageServiceProvider
         $package
             ->name('unify-shorten')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_unify-shorten_table')
-            ->hasCommand(ShortenCommand::class);
+            ->hasCommand(ShortenCommand::class)
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command->publishConfigFile()->askToStarRepoOnGitHub('sunxyw/unify-shorten');
+            });
     }
 }
