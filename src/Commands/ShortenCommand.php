@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Sunxyw\Shorten\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ShortenCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'unify-shorten';
 
     public $description = 'My command';
 
