@@ -5,6 +5,9 @@ namespace Sunxyw\Shorten\Providers;
 use Illuminate\Support\Facades\Http;
 use Sunxyw\Shorten\Exceptions\RemoteServiceException;
 
+/**
+ * @see https://cutt.ly/api-documentation/cuttly-links-api
+ */
 class CuttLy extends Provider
 {
     public function shorten(string $url, string $code = null): string

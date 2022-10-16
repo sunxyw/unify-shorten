@@ -35,9 +35,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Sunxyw\\Shorten\\": "src",
-            "Sunxyw\\Shorten\\Database\\Factories\\": "database/factories"
-        }
+            "Sunxyw\\Shorten\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
