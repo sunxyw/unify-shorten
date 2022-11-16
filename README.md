@@ -52,6 +52,8 @@ All the methods above will return the shortened URL.
 | [Cutt.ly](https://cutt.ly/api-documentation/cuttly-links-api)                        | `apiKey` | Yes   | Unknown |
 | [GoTiny](https://github.com/robvanbakel/gotiny-api)                                  | No       | Yes   | Yes     |
 
+> If you have more providers that you would like supported, please contact me in Issues. For paid providers, it would be even better if you could provide test credentials.
+
 ## Testing
 
 ```bash
