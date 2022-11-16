@@ -7,7 +7,7 @@ return [
 
         '1pt' => [
             'class' => \Sunxyw\Shorten\Providers\OnePt::class,
-            'api' => 'https://thakdees.dev.fast.sheridanc.on.ca/1pt/addURL.php',
+            'api' => 'https://csclub.uwaterloo.ca/~phthakka/1pt/addURL.php',
             'options' => [
                 'base_url' => 'https://1pt.co/',
             ],
