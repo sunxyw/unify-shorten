@@ -3,7 +3,7 @@
 // config for Sunxyw/Shorten
 return [
     'providers' => [
-        'default' => '1pt',
+        'default' => env('SHORTEN_PROVIDER', '1pt'),
 
         '1pt' => [
             'class' => \Sunxyw\Shorten\Providers\OnePt::class,
@@ -33,8 +33,17 @@ return [
             'class' => \Sunxyw\Shorten\Providers\CuttLy::class,
             'api' => 'https://cutt.ly/api/api.php',
             'options' => [
-                'api_key' => 'c8d221a514aff4b00bb9c9c0b7c1cd8fce115',
+                'api_key' => env('CUTTLY_API_KEY'),
                 'base_url' => 'https://cutt.ly/',
+            ],
+        ],
+
+        'firebase' => [
+            'class' => \Sunxyw\Shorten\Providers\Firebase::class,
+            'api' => 'https://firebasedynamiclinks.googleapis.com/v1/shortLinks',
+            'options' => [
+                'api_key' => env('FIREBASE_API_KEY'),
+                'base_url' => env('FIREBASE_SHORTEN_BASE_URL', 'https://jumpto.page.link/'),
             ],
         ],
     ],

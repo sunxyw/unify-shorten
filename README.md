@@ -45,14 +45,16 @@ All the methods above will return the shortened URL.
 
 ## Supported Providers
 
-| API                                                                                  | Auth     | HTTPS | CORS    |
-|--------------------------------------------------------------------------------------|----------|-------|---------|
-| [1pt](https://github.com/1pt-co/api/blob/main/README.md)                             | No       | Yes   | Yes     |
-| [CleanURI](https://cleanuri.com/docs)                                                | No       | Yes   | Yes     |
-| [Cutt.ly](https://cutt.ly/api-documentation/cuttly-links-api)                        | `apiKey` | Yes   | Unknown |
-| [GoTiny](https://github.com/robvanbakel/gotiny-api)                                  | No       | Yes   | Yes     |
+| API                                                           | Auth     | HTTPS | CORS    |
+|---------------------------------------------------------------|----------|-------|---------|
+| [1pt](https://github.com/1pt-co/api/blob/main/README.md)      | No       | Yes   | Yes     |
+| [CleanURI](https://cleanuri.com/docs)                         | No       | Yes   | Yes     |
+| [Cutt.ly](https://cutt.ly/api-documentation/cuttly-links-api) | `apiKey` | Yes   | Unknown |
+| [GoTiny](https://github.com/robvanbakel/gotiny-api)           | No       | Yes   | Yes     |
+| [Firebase](https://firebase.google.com/docs/dynamic-links)    | `apiKey` | Yes   | Yes     |
 
-> If you have more providers that you would like supported, please contact me in Issues. For paid providers, it would be even better if you could provide test credentials.
+> If you have more providers that you would like supported, please contact me in Issues. For paid providers, it would be
+> even better if you could provide test credentials.
 
 ## Testing
 
